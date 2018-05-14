@@ -1,0 +1,1 @@
+module.exports.p = (o) => console.log(JSON.stringify(o, null, '  '))
