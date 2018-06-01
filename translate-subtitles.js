@@ -1,6 +1,6 @@
 const xml2js = require('xml2js')
       parseString = xml2js.parseString,
-      builder = new xml2js.Builder({ renderOpts: { pretty: false } })
+      builder = new xml2js.Builder({ renderOpts: { pretty: true } })
       fs = require('fs'),
       async = require('async'),
       authenticate = require('./authentication.js').authenticate,
@@ -9,13 +9,13 @@ const xml2js = require('xml2js')
 
 
 const files = fs.readdirSync('./English/Subtitles')
-async.eachSeries(files, function(file, callback) {
+async.eachSeries(files, function(file, next) {
   console.log(`translating ${file}`)
   let contents = fs.readFileSync(`./English/Subtitles/${file}`, 'utf8')
   parseString(contents, (err, contents) => {
     translate(err, contents, (results) => {
       fs.writeFileSync(`./Italian/Subtitles/${file}`, builder.buildObject(results))
-      callback()
+      next()
     })
   })
 })

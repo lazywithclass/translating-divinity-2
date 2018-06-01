@@ -23,6 +23,31 @@ see if everything is working in your Google Translate project, it should be work
 As of now this is configured to translate English to Italian, but to adjust it to your needs you just need to change a couple
 paths in `translate-main.js` and `translate-subtitles.js`.
 
+### Use it
+
+You will need [Norbyte's Extractor Tool](https://docs.larian.game/Pak_Extractor_Guide).
+
+Compress the resulting folder wrapped in a containing folder, so something like this:
+
+`C:\Users\yourself\Downloads\containing-folder\Localization\...`
+
+otherwise you will not see the correct language in game. `Localization` is the one containing your language, in my case
+it was containing
+
+```
+├── Italian
+│   ├── Gender
+│   │   └── Female
+│   └── Subtitles
+```
+
+Remember to give to Norbyte's Extract Tool `C:\Users\yourself\Downloads\containing-folder` as the `"Source path"` or you will
+not see your language once in game!
+
+### Need help?
+
+Feel free to [open an issue](issues/new), I will try my best to help you!
+
 ### Disclaimer
 
 I do not own right for any of the Localised contents used here, I just downloaded them from [here](https://docs.larian.game/Modding:_Localization).
